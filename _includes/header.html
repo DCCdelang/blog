@@ -1,0 +1,16 @@
+<header class="site-header">
+  <div class="header-wrapper">
+    <a class="site-title" rel="author" href="{{ '/' | relative_url }}">{{ site.title | escape }}</a>
+
+    <nav class="site-nav">
+        <a class="page-link home" href="{{ '/' | relative_url }}">Home</a>
+         <!-- other nav links -->
+        {% for page in site.pages %}
+          {% if page.title and page.nav_exclude != true %}
+            <a class="page-link" href="{{ page.url | relative_url }}">{{ page.title }}</a>
+          {% endif %}
+        {% endfor %}
+    </nav>
+  </div>
+    
+</header>

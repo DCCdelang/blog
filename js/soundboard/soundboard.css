@@ -1,0 +1,187 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+
+/* Scoped to the sound effect list, so the bass panel buttons are not stretched
+   to half the page width. */
+#soundboard button {
+    width: 50%;
+    height: 30pt;
+    margin-top: 7pt;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2em;
+}
+
+/* ------------------------------------------------------------ bass panel --- */
+
+.bass-panel {
+    display: inline-block;
+    text-align: left;
+    max-width: 100%;
+    margin: 0 auto 2em;
+    padding: 14px;
+    border: 1px solid #d5d5d5;
+    border-radius: 6px;
+    background: #fafafa;
+}
+
+.transport {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.transport-button {
+    font-family: inherit;
+    font-size: 13px;
+    padding: 7px 18px;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    background: #fff;
+    cursor: pointer;
+}
+
+.transport-button:hover {
+    background: #f0f0f0;
+}
+
+.transport-button.playing {
+    background: #e8453c;
+    border-color: #c5322a;
+    color: #fff;
+}
+
+/* Sequencer grid. The labels and each step column are both flex columns with
+   the same gap, which is what keeps the rows lined up. */
+.seq {
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+}
+
+.seq-labels,
+.seq-col {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.seq-cols {
+    display: flex;
+    gap: 2px;
+}
+
+.seq-label {
+    box-sizing: border-box;
+    width: 30px;
+    height: 16px;
+    padding-right: 4px;
+    font-size: 9px;
+    line-height: 16px;
+    text-align: right;
+    color: #777;
+}
+
+.cell {
+    box-sizing: border-box;
+    width: 22px;
+    height: 16px;
+    border: 1px solid #dcdcdc;
+    border-radius: 2px;
+    background: #fff;
+    cursor: pointer;
+}
+
+.cell:hover {
+    border-color: #999;
+}
+
+/* A little air above the two performance rows, matched on the labels so the
+   grid stays aligned. */
+.cell.accent,
+.seq-label.gap {
+    margin-top: 6px;
+}
+
+.cell.note.on {
+    background: #e8453c;
+    border-color: #c5322a;
+}
+
+.cell.accent.on {
+    background: #f0a500;
+    border-color: #c78700;
+}
+
+.cell.slide.on {
+    background: #3d7fd9;
+    border-color: #2f65ad;
+}
+
+/* The playhead tints the whole column, which shows through the empty cells. */
+.seq-col.playing {
+    background: #ffeaa7;
+    border-radius: 3px;
+}
+
+/* Controls */
+.rack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 14px;
+}
+
+.group {
+    flex: 1 1 200px;
+    min-width: 190px;
+    padding: 8px 10px 10px;
+    border: 1px solid #e2e2e2;
+    border-radius: 4px;
+    background: #fff;
+}
+
+.group h3 {
+    margin: 0 0 6px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #888;
+}
+
+.control {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 3px;
+    font-size: 11px;
+}
+
+.control .name {
+    width: 52px;
+    color: #444;
+}
+
+.control input[type="range"] {
+    flex: 1;
+    min-width: 0;
+    height: 14px;
+    margin: 0;
+}
+
+.control select {
+    flex: 1;
+    min-width: 0;
+    font-family: inherit;
+    font-size: 11px;
+}
+
+.control .value {
+    width: 56px;
+    text-align: right;
+    color: #666;
+    font-variant-numeric: tabular-nums;
+}

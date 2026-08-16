@@ -1,0 +1,29 @@
+{% comment %}
+  Use this to insert markup before the closing body tag.
+  For example, scripts that need to be executed after the document has finished loading.
+{% endcomment %}
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const mobileNav = document.querySelector(".nav-box-mobile details");
+    const container = document.querySelector(".container");
+    const headerHeight = document.querySelector(".site-header").offsetHeight;
+    const basePadding = 150; // Base header height
+
+    function adjustContainerPadding() {
+      if (mobileNav.open) {
+        const navHeight = mobileNav.scrollHeight;
+        container.style.paddingTop = `${basePadding + navHeight - 50}px`; // Header + menu height
+      } else {
+        container.style.paddingTop = `${basePadding}px`; // Reset when closed
+      }
+    }
+
+    // Listen for menu open/close
+    mobileNav.addEventListener("toggle", adjustContainerPadding);
+
+    // Adjust on resize to keep layout correct
+    window.addEventListener("resize", adjustContainerPadding);
+  });
+</script>
+

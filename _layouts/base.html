@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+
+  {%- include head.html -%}
+  
+  <body class="retro-body">
+
+    {%- include header.html -%}
+
+    <div class="retro-page">
+      <div class="container retro-grid">
+        <main class="main-content" aria-label="Content">
+          <div class="main-wrapper">
+            {{ content }}
+          </div>
+        </main>
+      </div>
+    </div>
+
+    {%- include sub-footer.html -%}
+    {%- include footer.html -%}
+    {% include scripts.html %}
+
+  </body>
+</html>

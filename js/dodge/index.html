@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>Dodge the junk</title>
+        <link rel="stylesheet" href="dodge.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, user-scalable=yes" />
+    </head>
+    <body>
+        <!-- The canvas fills the window, so the usual page furniture lives in a
+             small overlay on top of it instead of above it. -->
+        <div id="game"></div>
+        <div id="overlay">
+            <a class="page-link" href="../../">home</a>
+            <span>arrow keys to move</span>
+            <span>collect green, avoid red</span>
+            <span><kbd>R</kbd> to restart</span>
+            <button id="fullscreen">fullscreen</button>
+        </div>
+
+        <!-- Loaded at the end of the body so the container above already exists -->
+        <script src="move.js"></script>
+    </body>
+</html>

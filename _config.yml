@@ -1,0 +1,92 @@
+title: Dante's dev blog
+author:
+  name: Dante de Lang
+  email: dccdelang@outlook.com
+
+# The `>` after `description:` means to ignore line-breaks until next key.
+# If you want to omit the line-break after the end of text, use `>-` instead.
+description: >-
+
+
+baseurl: "/blog" # the subpath of your site, e.g. /blog
+url: "https://dccdelang.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+
+# Build settings
+
+# As of November 2023, GitHub Pages still uses Minima 2.5.1 (https://pages.github.com/versions/). 
+# If you want to use the latest Minima version on GitHub Pages, use the following setting
+# theme: minima
+
+# If you clone the Minima repo and build locally, use the remote_theme.
+remote_theme: jekyll/minima@1e8a445
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Minima specific settings, which are only available from Minima 3.0 onward.
+minima:
+  # Minima skin selection.
+  # Available skins are
+  # classic	           Default, light color scheme.
+  # dark	             Dark variant of the classic skin.
+  # auto	             Adaptive skin based on the default classic and dark skins.
+  # solarized-light	   Light variant of solarized color scheme.
+  # solarized-dark	   Dark variant of solarized color scheme.
+  # solarized	         Adaptive skin for solarized color scheme skins.
+  skin: auto
+
+  # If you want to link only specific pages in the site-navigation, use this and list
+  # the `path` property (as represented via Liquid) of the pages in the order they should
+  # be rendered.
+  nav_pages:
+    - about.md
+    - books.md
+    - categories.md
+    - CV.md
+
+  header_pages:
+    - about.md
+    - books.md
+    - categories.md
+    - CV.md
+
+  # Set to `true` to show excerpts on the homepage.
+  show_excerpts: true
+
+  # Safe mode for GitHub Pages
+  safe: false
+
+  # Minima date format.
+  # The default value is "%b %d, %Y" (e.g. Nov 14, 2023) 
+  # Refer to https://shopify.github.io/liquid/filters/date/ if you want to customize this.
+  #date_format: "%b-%d-%Y"
+
+  # Social Media Links
+  # Renders icons via Font Awesome Free webfonts CDN, based on ordered list of entries.
+  #
+  # Entry keys:
+  # * title    Tooltip rendered on hovering over icon.
+  # * icon     Font Awesome icon id. `github` corresponds to `fa-github`.
+  # * url      Full URL of social profile.
+  social_links:
+   - title: Github repository for this site
+     icon: github
+     url: "https://github.com/DCCdelang/blog"
+   - title: LinkedIn Profile
+     icon: linkedin
+     url: "https://www.linkedin.com/in/dante-de-lang"
+
+# Minima specific settings, which are only available from Minima 3.0 onward.
+# See https://github.com/jekyll/minima/issues/815 for more details.
+sass:
+  quiet_deps: true
+
+# keep_files is a list of files and directories to keep in the build process.
+keep_files:
+  - assets
+
+# Exclude files and directories from the build process.
+exclude:
+  - utils
+  - vendor

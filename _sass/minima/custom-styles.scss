@@ -1,0 +1,562 @@
+/* ============================================
+   CUSTOM STYLES & THEME CONFIGURATION
+   ============================================ */
+
+/* ============================================
+   VARIABLES: COLOR SCHEMES (CLEAN / MINIMAL)
+   --------------------------------------------
+   A neutral, readable palette. Tweak these
+   first if you want to change the look.
+   ============================================ */
+
+/* Light mode colors */
+[data-color-scheme="light"] {
+  /* Base surfaces */
+  --background-color: #ffffff;
+  --surface-color: #ffffff;
+  --surface-elevated: #f6f6f6;
+
+  /* Text */
+  --heading-color: #1a1a1a;
+  --title-color: #1a1a1a;
+  --text-color: #2b2b2b;
+
+  /* Links & borders */
+  --link-color: #1a1a1a;
+  --link-hover-color: #555555;
+  --border-color: #e2e2e2;
+
+  /* Code */
+  --code-bg-color: #f6f6f6;
+  --code-text-color: #1a1a1a;
+}
+
+/* Dark mode colors (default) */
+[data-color-scheme="dark"] {
+  /* Base surfaces */
+  --background-color: #121212;
+  --surface-color: #181818;
+  --surface-elevated: #1f1f1f;
+
+  /* Text */
+  --heading-color: #f2f2f2;
+  --title-color: #f2f2f2;
+  --text-color: #d6d6d6;
+
+  /* Links & borders */
+  --link-color: #f2f2f2;
+  --link-hover-color: #aaaaaa;
+  --border-color: #2c2c2c;
+
+  /* Code */
+  --code-bg-color: #1a1a1a;
+  --code-text-color: #e6e6e6;
+}
+
+/* ============================================
+   GLOBAL BASE STYLES
+   ============================================ */
+
+html {
+  background-color: transparent;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--background-color);
+  color: var(--text-color);
+  font-family: 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  font-size: 17px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--heading-color);
+  letter-spacing: 0.01em;
+}
+
+.retro-body {
+  /* hook class in case you want to scope styles later */
+}
+
+.retro-page {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 72px 20px 32px;
+}
+
+/* ============================================
+   LINKS & TEXT
+   ============================================ */
+
+a {
+  color: var(--link-color);
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--link-hover-color);
+    text-decoration: underline;
+  }
+}
+
+/* ============================================
+   LAYOUT: WRAPPERS & CONTAINERS
+   ============================================ */
+
+.container {
+  display: flex;
+  gap: 20px;
+  padding-top: 24px;
+}
+
+.main-wrapper {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 24px 40px;
+}
+
+.header-wrapper {
+  max-width: 1120px;
+  padding: 0 24px;
+}
+
+.footer-col-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+main.page-content {
+  flex: 1;
+}
+
+.main-content {
+  flex: 2;
+}
+
+.sidebar {
+  padding-right: 40px;
+  width: 100%;
+  max-width: 250px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ============================================
+   HEADER & NAVIGATION
+   ============================================ */
+
+.site-title {
+  color: var(--title-color) !important;
+  font-size: 1.625rem;
+  font-weight: 300;
+  letter-spacing: -1px;
+  margin-bottom: 0;
+  float: none;
+  padding: 0;
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+}
+
+.nav-box-mobile {
+  display: none;
+}
+
+.page-link {
+  color: var(--link-color) !important;
+  text-decoration: none;
+  margin-right: 20px;
+  text-align: right;
+  font-size: 16px;
+
+  &:hover {
+    color: var(--link-hover-color);
+  }
+
+  &.active {
+    font-weight: bold;
+  }
+}
+
+/* ============================================
+   FOOTER & CREDITS
+   ============================================ */
+
+.site-footer {
+  border-top: none;
+  margin-top: auto;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.footer-credits {
+  text-align: center;
+  font-size: 12px;
+  margin-top: 5px;
+  padding-top: 5px;
+  color: var(--text-color);
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+
+  p {
+    margin: 0;
+  }
+
+  a {
+    color: var(--link-color);
+    text-decoration: none;
+
+    &:hover {
+      color: var(--link-hover-color);
+      text-decoration: underline;
+    }
+  }
+}
+
+/* Header & footer */
+
+.site-header {
+  position: fixed;
+  width: 100%;
+  min-height: 56px;
+  line-height: 1;
+  border-top: none;
+  border-bottom: 1px solid var(--border-color);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  background: var(--background-color);
+  top: 0;
+  transition: top 0.3s ease-in-out;
+}
+
+.site-header.hide {
+  top: -70px;
+}
+
+.header-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.retro-header-inner {
+  padding: 10px 18px;
+}
+
+.retro-header-titlebar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ============================================
+   POST STYLING
+   ============================================ */
+
+.post-header {
+  margin-bottom: 30px;
+  padding-bottom: 18px;
+  text-align: center;
+  border-bottom: none;
+}
+
+/* Card language for home & posts */
+
+.retro-grid {
+  align-items: flex-start;
+}
+
+.retro-card {
+  background: var(--surface-color);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  padding: 24px 22px 26px;
+  position: relative;
+}
+
+.home.retro-card-list .post-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 28px 0 0;
+}
+
+.home.retro-card-list .post-list li + li {
+  margin-top: 20px;
+}
+
+.home.retro-card-list .post-meta {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--text-color);
+  opacity: 0.65;
+}
+
+.home.retro-card-list .post-link {
+  display: inline-block;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.retro-post-header {
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 14px;
+  margin-bottom: 18px;
+}
+
+.retro-post-header .post-title {
+  font-size: 2.1rem;
+}
+
+.retro-post-header .post-meta {
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+.post-categories {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.post-categories a {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border-color);
+  background-color: var(--surface-elevated);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--text-color);
+  transition: background-color 0.2s ease;
+}
+
+.post-categories a:hover {
+  background-color: var(--surface-color);
+}
+
+.post-content {
+  line-height: 1.7;
+}
+
+/* ============================================
+   THEME TOGGLE BUTTON
+   ============================================ */
+
+.theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 8px;
+  margin-left: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease-out;
+}
+
+.footer-credits .theme-toggle {
+  display: inline-block;
+  margin: 0;
+  font-size: 1.3rem;
+  padding: 6px;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+}
+
+.theme-toggle:active {
+  transform: scale(0.95);
+}
+
+/* ============================================
+   PROFILE IMAGE
+   ============================================ */
+
+.profile-image {
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 20px;
+  transition: transform 0.3s ease;
+}
+
+.page-link.home {
+  display: none;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN (Mobile & Tablet)
+   ============================================ */
+
+@media (max-width: 600px) {
+  .theme-toggle {
+    display: block;
+  }
+
+  .page-link {
+    padding: 6px 10px;
+    text-align: center;
+    font-size: 14px;
+    margin-right: 4px;
+    margin-bottom: 0;
+  }
+
+  .site-nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    background: transparent;
+    padding: 0;
+    width: 100%;
+  }
+
+  .retro-header-inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .retro-header-titlebar {
+    margin-bottom: 0;
+  }
+
+  .site-title {
+    display: none;
+  }
+
+  .page-link.home {
+    display: block;
+  }
+
+  /* Ensure mobile nav links are visible */
+  .site-nav .page-link {
+    color: var(--text-color) !important;
+    background: transparent;
+    border: none;
+    white-space: nowrap;
+  }
+
+  .site-nav .page-link:hover {
+    color: var(--link-hover-color) !important;
+  }
+
+  .retro-page {
+    padding: 60px 0px;
+  }
+}
+
+/* ============================================
+   LINKS, CODE, & INTERACTIONS
+   ============================================ */
+
+.post-link,
+.page-link {
+  position: relative;
+  transition: color 0.18s ease-out;
+}
+
+pre,
+code {
+  font-family: "Fira Code", ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+pre {
+  background-color: var(--code-bg-color);
+  color: var(--code-text-color);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  padding: 14px 16px;
+}
+
+code {
+  background-color: var(--code-bg-color);
+  padding: 0.1em 0.3em;
+  border-radius: 4px;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--link-color);
+  outline-offset: 3px;
+}
+
+/* ============================================
+   BACK TO TOP BUTTON
+   ============================================ */
+
+#back-to-top {
+  background: var(--surface-color) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 50% !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+  color: var(--text-color) !important;
+  font-size: 2rem !important;
+  font-weight: bold !important;
+  width: 56px !important;
+  height: 56px !important;
+  line-height: 56px !important;
+  bottom: 24px !important;
+  right: 24px !important;
+  z-index: 9999 !important;
+  transition:
+    transform 0.2s ease-out,
+    box-shadow 0.2s ease-out !important;
+  position: fixed !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  opacity: 0.9 !important;
+}
+
+#back-to-top:hover {
+  transform: translateY(-3px) !important;
+  opacity: 1 !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2) !important;
+}
+
+#back-to-top:active {
+  transform: translateY(-1px) !important;
+}
+
+/* Mobile view - smaller but still visible */
+@media (max-width: 600px) {
+  #back-to-top {
+    width: 44px !important;
+    height: 44px !important;
+    line-height: 44px !important;
+    font-size: 1.5rem !important;
+    bottom: 20px !important;
+    right: 20px !important;
+  }
+}

@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Web Audio Soundboard</title>
+        <link rel="stylesheet" href="soundboard.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, user-scalable=yes" />
+    </head>
+    <body>
+        <h1>Web Audio Soundboard</h1>
+        <p>Return to <a class="page-link" href="../../">home</a></p>
+        <p>Every sound is generated in the browser with the Web Audio API, so there are no audio files to download.</p>
+        <div id="soundboard"></div>
+
+        <h2>Bass panel</h2>
+        <p>
+            Press play, then click the grid to write a bass line: one note per column,
+            <em>acc</em> for an accent and <em>sld</em> to slide into the note from the one before.
+        </p>
+        <div id="bass"></div>
+
+        <!-- Loaded at the end of the body so the containers above already exist -->
+        <script src="audio.js"></script>
+        <script src="soundboard.js"></script>
+        <script src="bass.js"></script>
+    </body>
+</html>

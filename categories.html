@@ -1,0 +1,26 @@
+---
+layout: page
+title: Categories
+permalink: /categories/
+hide_title: true
+published: false
+---
+
+{% assign categories = site.posts | map: "categories" | join: ","  | split: "," | uniq | sort %}
+
+{% for category in categories %}
+  {% if category != "" %}
+    <h2>{{ category }}</h2>
+    <ul>
+      {% for post in site.posts %}
+        {% if post.categories contains category %}
+          <li>
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            <span class="post-date">({{ post.date | date: "%b %d, %Y" }})</span>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endfor %}
+
