@@ -1,0 +1,25 @@
+---
+layout: page
+title: Projects
+permalink: /projects/
+---
+
+<div class="projects-grid">
+  {% for project in site.data.projects %}
+    <article class="project-card">
+      {% assign preview = project.preview_url | default: nil %}
+      {% unless preview %}
+        {% capture preview %}https://image.thum.io/get/width/1200/noanimate/{{ project.live_url }}{% endcapture %}
+      {% endunless %}
+      <a class="project-card-preview" href="{{ project.live_url }}" target="_blank" rel="noopener">
+        <img src="{{ preview }}" alt="Screenshot of {{ project.title }}" loading="lazy">
+      </a>
+      <h3 class="project-card-title">{{ project.title }}</h3>
+      <p class="project-card-description">{{ project.description }}</p>
+      <div class="project-card-links">
+        <a href="{{ project.repo_url }}" target="_blank" rel="noopener">Code</a>
+        <a href="{{ project.live_url }}" target="_blank" rel="noopener">Live</a>
+      </div>
+    </article>
+  {% endfor %}
+</div>

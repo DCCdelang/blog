@@ -1,0 +1,25 @@
+# Projects shown on /projects/
+#
+# To add a new project card, add another entry below with the same keys.
+# - title:       card heading
+# - description: one or two sentences about the project
+# - repo_url:    link to the source code
+# - live_url:    link to the hosted/deployed version
+# - preview_url: (optional) image to use instead of the auto-generated
+#                screenshot of live_url — set this if the site can't be
+#                screenshotted (e.g. requires login) or the auto preview
+#                looks bad
+
+- title: my map
+  description: >-
+    An interactive map of my favourite locations, built with Leaflet and
+    OpenStreetMap. Lives in its own repo, so the markers are data-driven
+    from a JSON file.
+  repo_url: https://github.com/DCCdelang/mymap
+  live_url: https://dccdelang.github.io/mymap/
+
+- title: Draw a Sound
+  description: >-
+    Interactive 3D space to draw forms that convert into sound when played.
+  repo_url: https://github.com/DCCdelang/draw_a_sound
+  live_url: https://dccdelang.github.io/draw_a_sound/
